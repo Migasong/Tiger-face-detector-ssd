@@ -1,7 +1,7 @@
 # Tiger-face-detector-ssd
 
-![Aaron Swartz](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/input/12.jpg?raw=true)
-![Aaron Swartz](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/output/12.jpg?raw=true)
+![Input](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/input/12.jpg?raw=true)
+![Output](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/output/12.jpg?raw=true)
 
 
 
@@ -31,3 +31,26 @@
 * ‘read_txt.py’为将‘lb.txt’转换为‘tiger.pkl’以供dataset使用的代码
 * ‘prior_box.py’为准备default boxes的代码
 * 'config.py'中存放了一些其他程序会使用到的参数
+
+**使用说明：**
+* 修改’settings.py‘中的各文件路径
+* 运行’train.py‘程序可对数据进行训练
+* 运行’test.py‘程序可对数据进行测试
+* 该程序为GPU版本，若想在CPU上使用需要修改‘train.py’中的下述代码
+(1) 注释line 31, line 140
+``` python
+ 31	torch.cuda.set_device(1)
+```
+``` python
+140	data = data.cuda()
+```
+(2) 注释line 57, 使用line 58
+``` python
+ 57	self.net = self.net.cuda()
+ 58	#self.net = self.net
+```
+(3) MultiBoxLoss最后一个参数表示是否使用GPU，将其由True改为False
+``` python
+121	crit = MultiBoxLoss(voc['num_classes'], 0.5, True, 0, True, 3, 0.5, False, True)
+```
+(4) 此外，还有一些数据格式的变化需自行根据报错修改
