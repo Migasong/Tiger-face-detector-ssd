@@ -1,7 +1,7 @@
 # Tiger-face-detector-ssd
 
-![Input](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/input/12.jpg?raw=true)
-![Output](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/output/12.jpg?raw=true)
+![Output1](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/output/12.jpg?raw=true)
+![Output2](https://github.com/Migasong/Tiger-face-detector-ssd/blob/master/config/output/8.jpg?raw=true)
 
 
 
